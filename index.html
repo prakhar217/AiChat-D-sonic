@@ -5,36 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 
-<body>
-    <div id="responseId">heelo</div>
-    <script type="text/javascript">
-        let guestname = 'Pratham'
-        let desgination = 'GM'
-        let qualities = ''
-        let hotelName = 'Oberoi'
+<body style="text-align: center;">
+    <h1>Welcome letter</h1>
 
-        const id = document.getElementById('responseId')
-        const options = {
-            method: 'POST',
-            headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-                'X-API-KEY': '0c00749d-e0c5-4682-b9bd-e141b2da8892'
-            },
-            body: JSON.stringify({ enable_google_results: 'true', enable_memory: false, input_text: `Generate a welcome letter for our VVIP guest ${guestname} , i am ${desgination} of the ${hotelName}, our guest is ${qualities ? qualities : ''} so write accordingly and make it engaging` })
-        };
+    <div>
+        <label>Guest Name</label><br>
+        <input type="text" id="guestName" value=""><br><br>
+    
+        <label>Designation</label><br>
+        <input type="text" id="designation" value=""><br><br>
+    
+        <label>Hotel Name</label><br>
+        <input type="text" id="hotelName" value=""><br><br>
+        
+        <label>Qualities</label><br>
+        <input type="text" id="qualities" value=""><br><br>
+    
+        <label>Body</label><br>
+        <textarea rows="20" cols="63" type="text" id="body" value=""></textarea></textarea><br><br>
+    
+        <button onclick="generateResponse()">Generate</button>
+    </div>
 
-        fetch('https://api.writesonic.com/v2/business/content/chatsonic?engine=premium', options)
-            .then(response => response.json())
-            .then((response) => {
-                id.innerHTML = response.message
-                console.log(response);
-            })
-            .catch(err => console.error(err));
-    </script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>

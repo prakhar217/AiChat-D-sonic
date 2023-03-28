@@ -1,0 +1,35 @@
+body{
+    margin:64px;
+}
+
+h1{
+    font-size: 51px;
+}
+
+div{
+    margin:59px auto;
+}
+
+input{
+    height:24px;
+    width:502px;
+    border-radius: 4px;
+    border:1px solid #d5d5d5;
+    padding:6px 12px;
+}
+
+textarea{
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    resize: none;
+    padding:6px 12px;
+}
+
+button{
+    height: 36px;
+    width: 90px;
+    background: #0f4abb;
+    border: none;
+    color: white;
+    border-radius: 6px;
+}
