@@ -3,6 +3,7 @@ let guestname;
 let designation;
 let qualities;
 let hotelName;
+let signature;
 let body = document.getElementById('body');
 const id = document.getElementById('responseId')
 
@@ -10,6 +11,7 @@ const id = document.getElementById('responseId')
 function generateResponse(){
     guestname = document.getElementById('guestName').value
     designation = document.getElementById('designation').value
+    signature = document.getElementById('signature').value
     qualities = document.getElementById('qualities').value
     hotelName = document.getElementById('hotelName').value
     console.log("response generated");
@@ -24,16 +26,16 @@ function generateResponse(){
         headers: {
             accept: 'application/json',
             'content-type': 'application/json',
-            'X-API-KEY': '0c00749d-e0c5-4682-b9bd-e141b2da8892'
+            'X-API-KEY': '1651d11b-ba44-4a96-81d3-ca1305b359c1'
         },
-        body: JSON.stringify({ enable_google_results: 'true', enable_memory: false, input_text: `Generate a welcome letter for our VVIP guest ${guestname} , i am ${designation} of the ${hotelName},${qualities ? 'our guest is '+qualities : ''} so write accordingly and make it engaging` })
+        body: JSON.stringify({ enable_google_results: 'true', enable_memory: false, input_text: `Generate a welcome letter for our VVIP guest ${guestname} , i am ${signature}, ${designation} of the ${hotelName},${qualities ? 'our guest is '+qualities : ''} so write accordingly and make it engaging` })
     };
 
     fetch('https://api.writesonic.com/v2/business/content/chatsonic?engine=premium', options)
         .then(response => response.json())
         .then((response) => {
             // id.innerHTML = response.message
-            body.value = response.detail
+            body.value = response.message
             console.log(`Generate a welcome letter for our VVIP guest ${guestname} , i am ${designation} of the ${hotelName},${qualities ? 'our guest is '+qualities : ''} so write accordingly and make it engaging`);
             console.log(response.detail);
         })
